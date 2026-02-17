@@ -1,5 +1,5 @@
 // URL de nuestro servidor en la nube (Pronto la cambiaremos por la real de Render)
-const URL_SERVIDOR = 'http://localhost:3000';
+const URL_SERVIDOR = 'https://cybereda-vnzla.onrender.com';
 
 const formLogin = document.getElementById('formLogin');
 const mensajeError = document.getElementById('mensajeError');

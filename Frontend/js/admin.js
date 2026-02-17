@@ -1,6 +1,6 @@
 
 // URL de nuestro servidor en la nube (Pronto la cambiaremos por la real de Render)
-const URL_SERVIDOR = 'http://localhost:3000';// --- 1. SISTEMA DE SEGURIDAD ---
+const URL_SERVIDOR = 'https://cybereda-vnzla.onrender.com';// --- 1. SISTEMA DE SEGURIDAD ---
 const token = localStorage.getItem('tokenCybereda');
 
 // Si no hay token, lo mandamos al login inmediatamente
