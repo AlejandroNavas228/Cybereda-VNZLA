@@ -72,7 +72,7 @@ async function guardarProducto(e) {
     };
 
     try {
-        const respuesta = await fetch('http://localhost:3000/api/productos', {
+        const respuesta = await fetch(`${URL_SERVIDOR}/api/productos`, {
             method: 'POST',
             headers: { 'Content-Type': 'application/json' },
             body: JSON.stringify(nuevoProducto)
