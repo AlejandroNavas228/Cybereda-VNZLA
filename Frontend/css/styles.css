@@ -1,3 +1,7 @@
+html {
+    scroll-behavior: smooth;
+}
+
 /* VARIABLES DE COLOR (Estilo Tech) */
 :root {
     --primary-color: #0056b3; /* Azul tecnológico */

@@ -144,36 +144,40 @@
 }
 
 /* RESPONSIVE DEL PANEL */
+/* RESPONSIVE MEJORADO DEL PANEL ADMIN */
 @media (max-width: 992px) {
     .admin-content {
-        grid-template-columns: 1fr; /* En pantallas pequeñas, el formulario va arriba y la tabla abajo */
+        grid-template-columns: 1fr; /* Apila el formulario arriba y la tabla abajo */
     }
 }
 
 @media (max-width: 768px) {
     .admin-body {
         flex-direction: column;
+        overflow-y: auto; /* Permite scroll en toda la página */
     }
+    
     .admin-sidebar {
         width: 100%;
         height: auto;
-        flex-direction: row;
-        align-items: center;
-        justify-content: space-between;
     }
+    
     .admin-nav {
         flex-direction: row;
-        padding: 0;
+        flex-wrap: wrap; /* Si hay muchos botones, los pasa a la siguiente línea */
+        justify-content: center;
     }
+    
     .admin-nav a {
-        padding: 15px;
-        border-left: none;
-        border-bottom: 4px solid transparent;
+        padding: 10px;
+        font-size: 0.9rem;
+        border: none;
     }
-    .admin-nav a.active {
-        border-bottom: 4px solid var(--primary-color);
-    }
-    .btn-salir {
-        margin-top: 0;
+
+    /* Solución mágica para que la tabla no rompa la pantalla */
+    .table-responsive {
+        width: 100%;
+        overflow-x: auto; /* Crea una barra de scroll horizontal SOLO para la tabla */
+        -webkit-overflow-scrolling: touch;
     }
 }

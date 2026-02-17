@@ -69,14 +69,33 @@ btnVaciar.addEventListener('click', () => {
 
 btnPagar.addEventListener('click', enviarPedidoWhatsApp);
 
+// --- FUNCIONALIDAD DEL BUSCADOR ---
+const inputBuscador = document.querySelector('.search-bar input');
+
+inputBuscador.addEventListener('input', (e) => {
+    const textoBuscado = e.target.value.toLowerCase(); // Lo que escribe el cliente en minúsculas
+    
+    // Filtramos el arreglo de productos
+    const productosFiltrados = productos.filter(producto => 
+        producto.nombre.toLowerCase().includes(textoBuscado) || 
+        producto.categoria.toLowerCase().includes(textoBuscado)
+    );
+    
+    // Dibujamos solo los que coincidan
+    renderizarProductos(productosFiltrados);
+});
+
 // FUNCIONES
 function cerrarPanel() {
     sidebarCarrito.classList.remove('activo');
     overlayCarrito.classList.remove('activo');
 }
 
-function renderizarProductos() {
-    productos.forEach(producto => {
+// OJO: Le agregamos "listaProductos = productos" entre los paréntesis
+function renderizarProductos(listaProductos = productos) {
+    contenedorProductos.innerHTML = ''; // Limpiamos el contenedor antes de dibujar
+
+    listaProductos.forEach(producto => {
         const card = document.createElement('div');
         card.classList.add('producto-card');
         card.innerHTML = `
@@ -195,7 +214,7 @@ function enviarPedidoWhatsApp() {
     }
 
     // 2. Número de teléfono de la tienda (¡Cámbialo por el real!)
-    const telefonoVendedor = "584241843740"; 
+    const telefonoVendedor = "584242266955"; 
     
     // 3. Empezamos a redactar el mensaje
     let mensaje = "¡Hola CYBEREDAVZLA! 🚀 Quiero realizar el siguiente pedido:\n\n";

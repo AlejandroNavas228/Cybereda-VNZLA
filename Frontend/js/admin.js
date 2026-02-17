@@ -64,29 +64,46 @@ async function obtenerProductosAdmin() {
 
 async function guardarProducto(e) {
     e.preventDefault();
-    const nuevoProducto = {
-        nombre: document.getElementById('nombre').value,
-        precio: parseFloat(document.getElementById('precio').value),
-        imagen: document.getElementById('imagen').value,
-        categoria: document.getElementById('categoria').value
+    
+    // Obtenemos el archivo de imagen que seleccionaste
+    const inputArchivo = document.getElementById('imagenFile');
+    const archivo = inputArchivo.files[0];
+
+    // Usamos FileReader para convertir la imagen a texto (Base64)
+    const reader = new FileReader();
+    
+    reader.onloadend = async function() {
+        const imagenBase64 = reader.result; // Aquí está la magia: la imagen hecha texto
+
+        const nuevoProducto = {
+            nombre: document.getElementById('nombre').value,
+            precio: parseFloat(document.getElementById('precio').value),
+            categoria: document.getElementById('categoria').value,
+            imagen: imagenBase64 // Enviamos la foto convertida en texto
+        };
+
+        try {
+            const respuesta = await fetch(`${URL_SERVIDOR}/api/productos`, {
+                method: 'POST',
+                headers: { 'Content-Type': 'application/json' },
+                body: JSON.stringify(nuevoProducto)
+            });
+
+            if (respuesta.ok) {
+                alert('¡Producto guardado con éxito!');
+                formProducto.reset();
+                obtenerProductosAdmin();
+            } else {
+                alert('Hubo un error al guardar el producto.');
+            }
+        } catch (error) {
+            console.error('Error al guardar:', error);
+        }
     };
 
-    try {
-        const respuesta = await fetch(`${URL_SERVIDOR}/api/productos`, {
-            method: 'POST',
-            headers: { 'Content-Type': 'application/json' },
-            body: JSON.stringify(nuevoProducto)
-        });
-
-        if (respuesta.ok) {
-            alert('¡Producto guardado con éxito!');
-            formProducto.reset();
-            obtenerProductosAdmin();
-        } else {
-            alert('Hubo un error al guardar el producto.');
-        }
-    } catch (error) {
-        console.error('Error al guardar:', error);
+    // Esto "enciende" el lector para que haga la conversión
+    if (archivo) {
+        reader.readAsDataURL(archivo);
     }
 }
 
