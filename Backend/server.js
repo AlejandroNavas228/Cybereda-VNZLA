@@ -7,7 +7,9 @@ const PORT = 3000;
 
 // Permisos para que el Frontend (HTML) se comunique con el Backend
 app.use(cors());
-app.use(express.json());
+// Le decimos al servidor que acepte archivos convertidos de hasta 10MB
+app.use(express.json({ limit: '10mb' }));
+app.use(express.urlencoded({ limit: '10mb', extended: true }));
 
 // 1. CONEXIÓN A LA BASE DE DATOS (Crea el archivo database.sqlite automáticamente)
 const db = new sqlite3.Database('./database.sqlite', (err) => {

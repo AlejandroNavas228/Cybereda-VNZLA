@@ -32,6 +32,26 @@ document.addEventListener('DOMContentLoaded', () => {
 if (formProducto) formProducto.addEventListener('submit', guardarProducto);
 if (tablaProductos) tablaProductos.addEventListener('click', manejarClicTabla);
 
+// --- EVENTO PARA MOSTRAR QUE LA IMAGEN SE CARGÓ ---
+const inputArchivoDrop = document.getElementById('imagenFile');
+const textoDropZone = document.querySelector('.file-drop-zone span');
+
+if (inputArchivoDrop && textoDropZone) {
+    inputArchivoDrop.addEventListener('change', function() {
+        if (this.files && this.files.length > 0) {
+            // Si hay un archivo, cambiamos el texto y el color a verde
+            textoDropZone.textContent = '✅ Lista: ' + this.files[0].name;
+            textoDropZone.style.color = '#25d366'; // Verde WhatsApp
+            textoDropZone.style.fontWeight = 'bold';
+        } else {
+            // Si el usuario cancela, lo devolvemos a la normalidad
+            textoDropZone.textContent = 'Haz clic aquí para seleccionar la imagen';
+            textoDropZone.style.color = '#718096';
+            textoDropZone.style.fontWeight = 'normal';
+        }
+    });
+}
+
 
 // --- 4. FUNCIONES ---
 async function obtenerProductosAdmin() {
@@ -92,6 +112,12 @@ async function guardarProducto(e) {
             if (respuesta.ok) {
                 alert('¡Producto guardado con éxito!');
                 formProducto.reset();
+                // Restaurar el texto de la caja de imagen al guardar
+                if (textoDropZone) {
+                    textoDropZone.textContent = 'Haz clic aquí para seleccionar la imagen';
+                    textoDropZone.style.color = '#718096';
+                    textoDropZone.style.fontWeight = 'normal';
+                }
                 obtenerProductosAdmin();
             } else {
                 alert('Hubo un error al guardar el producto.');
