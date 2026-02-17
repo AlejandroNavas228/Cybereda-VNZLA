@@ -118,17 +118,21 @@ function manejarClicTabla(e) {
     }
 }
 
+// --- VERSIÓN CORREGIDA ---
 async function eliminarProductoAdmin(id) {
     try {
-        const respuesta = await fetch(`http://localhost:3000/api/productos/${id}`, {
+        const respuesta = await fetch(`${URL_SERVIDOR}/api/productos/${id}`, {
             method: 'DELETE'
         });
+
         if (respuesta.ok) {
             alert('Producto eliminado correctamente.');
-            obtenerProductosAdmin(); 
+            // ¡ESTA ES LA LÍNEA MÁGICA QUE FALTABA!
+            obtenerProductosAdmin(); // Recarga la tabla automáticamente
         } else {
             alert('Hubo un problema al intentar eliminar el producto.');
         }
+
     } catch (error) {
         console.error('Error al intentar eliminar:', error);
     }

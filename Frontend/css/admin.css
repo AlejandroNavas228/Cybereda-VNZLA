@@ -143,6 +143,40 @@
     background: #f4f4f4;
 }
 
+/* --- ESTILOS PARA EL INPUT DE ARCHIVO PERSONALIZADO --- */
+
+/* 1. Escondemos el input feo original por defecto del navegador */
+.custom-file-upload input[type="file"] {
+    display: none;
+}
+
+/* 2. Estilo para la zona donde se hace clic (la caja bonita con borde punteado) */
+.file-drop-zone {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 30px;
+    background-color: #f8f9fa;
+    border: 2px dashed #cbd5e0; /* Borde punteado moderno */
+    border-radius: 8px;
+    cursor: pointer; /* Manito al pasar el mouse */
+    color: #718096;
+    transition: all 0.3s ease;
+}
+
+.file-drop-zone i {
+    color: var(--primary-color); /* El icono usa el color azul de la marca */
+}
+
+/* 3. Efecto visual cuando pasas el mouse por encima */
+.file-drop-zone:hover {
+    background-color: #edf2f7;
+    border-color: var(--primary-color);
+    color: var(--text-dark);
+}
+
 /* RESPONSIVE DEL PANEL */
 /* RESPONSIVE MEJORADO DEL PANEL ADMIN */
 @media (max-width: 992px) {
@@ -181,3 +215,4 @@
         -webkit-overflow-scrolling: touch;
     }
 }
+
