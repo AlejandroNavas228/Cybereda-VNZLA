@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CYBEREDAVZLA </title>
+    <link rel="icon" type="image/jpg" href="https://i.ibb.co/7xyDKHwJ/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+
+    <header class="navbar">
+        <div class="nav-container">
+            <a href="index.html" class="logo">
+                <img src="https://i.ibb.co/7xyDKHwJ/logo.jpg" alt="Logo CYBEREDAVZLA">
+                <span>CYBEREDAVZLA</span>
+            </a>
+
+            <div class="search-bar">
+                <input type="text" placeholder="¿Qué estás buscando hoy?">
+                <button><i class="fas fa-search"></i></button>
+            </div>
+
+            <div class="nav-icons">
+                <a href="login.html" class="icon-link"><i class="fas fa-user"></i> <span class="icon-text">Admin</span></a>
+                <a href="#" class="icon-link cart-icon">
+                    <i class="fas fa-shopping-cart"></i> 
+                    <span class="cart-count">0</span>
+                </a>
+            </div>
+        </div>
+    </header>
+
+    <main>
+        <section class="hero">
+            <div class="hero-content">
+                <h1>Lo mejor en tecnología, al mejor precio</h1>
+                <p>Equipos, accesorios y servicio técnico especializado.</p>
+                <button class="btn-primary">Ver Catálogo</button>
+            </div>
+        </section>
+
+        <section class="productos-destacados" id="catalogo">
+            <h2>Nuestros Productos</h2>
+            <div class="grid-productos">
+                </div>
+        </section>
+    </main>
+
+    <div class="overlay-carrito" id="overlayCarrito"></div>
+    <aside class="carrito-sidebar" id="carritoSidebar">
+        <div class="carrito-header">
+            <h2>Tu Carrito</h2>
+            <button id="cerrarCarrito"><i class="fas fa-times"></i></button>
+        </div>
+        
+        <div class="carrito-items" id="contenedorCarritoItems">
+            </div>
+
+        <div class="carrito-footer">
+            <div class="carrito-total">
+                <span>Total a pagar:</span>
+                <span id="precioTotal">$0.00</span>
+            </div>
+            <button class="btn-primary btn-block" id="btnVaciar" style="background-color: #dc3545; margin-bottom: 10px;">Vaciar Carrito</button>
+            <button class="btn-primary btn-block" id="btnPagar" style="background-color: var(--primary-color);">Ir a Pagar</button>
+        </div>
+    </aside>
+        <a href="https://wa.me/584241843740?text=Hola%20CYBEREDAVZLA,%20vengo%20de%20la%20tienda%20web%20y%20necesito%20ayuda." class="btn-whatsapp-flotante" target="_blank">
+            <i class="fab fa-whatsapp"></i>
+        </a>
+
+    <script src="js/app.js"></script>
+</body>
+</html>
+    
+

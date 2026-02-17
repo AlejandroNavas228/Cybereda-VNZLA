@@ -1,0 +1,21 @@
+cyberedavzla-web/
+│
+├── frontend/                  <-- Todo lo visual y cliente
+│   ├── index.html             (Página principal / Catálogo para clientes)
+│   ├── login.html             (Página de acceso para el Admin)
+│   ├── admin.html             (Panel de control del Admin)
+│   ├── css/
+│   │   ├── styles.css         (Estilos globales y del cliente)
+│   │   └── admin.css          (Estilos exclusivos del panel)
+│   ├── js/
+│   │   ├── app.js             (Lógica del catálogo, carrito y cliente)
+│   │   └── admin.js           (Lógica para agregar productos y login)
+│   └── assets/
+│       ├── img/               (Aquí guardas el logo y las imágenes de prueba)
+│       └── icons/             (Iconos de carrito, redes, etc.)
+│
+└── backend/                   <-- El servidor y la base de datos (Node.js)
+    ├── server.js              (El archivo principal de Express)
+    ├── routes/                (Rutas de la API: /productos, /login, etc.)
+    ├── controllers/           (Lógica de qué pasa cuando visitan una ruta)
+    └── database/              (Configuración de la conexión a la Base de Datos)

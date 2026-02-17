@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Panel Admin | CYBEREDAVZLA</title>
+    <link rel="icon" type="image/jpg" href="https://i.ibb.co/7xyDKHwJ/logo.jpg">
+    <link rel="stylesheet" href="css/styles.css">
+    <link rel="stylesheet" href="css/admin.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body class="admin-body">
+
+    <aside class="admin-sidebar">
+        <div class="admin-logo">
+            <h2><i class="fas fa-cogs"></i> ADMIN</h2>
+        </div>
+        <nav class="admin-nav">
+            <a href="#" class="active"><i class="fas fa-box"></i> Inventario</a>
+            <a href="index.html"><i class="fas fa-store"></i> Ver Tienda</a>
+            <a href="#" class="btn-salir"><i class="fas fa-sign-out-alt"></i> Cerrar Sesión</a>
+        </nav>
+    </aside>
+
+    <main class="admin-main">
+        <header class="admin-header">
+            <h1>Gestión de Productos</h1>
+        </header>
+
+        <div class="admin-content">
+            
+            <section class="admin-panel form-panel">
+                <h2>Agregar Nuevo Producto</h2>
+                <form id="formProducto">
+                    <div class="form-group">
+                        <label for="nombre">Nombre del Producto</label>
+                        <input type="text" id="nombre" required placeholder="Ej: Mouse Gamer XYZ">
+                    </div>
+                    <div class="form-group">
+                        <label for="precio">Precio ($)</label>
+                        <input type="number" id="precio" step="0.01" required placeholder="Ej: 15.50">
+                    </div>
+                    <div class="form-group">
+                        <label for="categoria">Categoría</label>
+                        <select id="categoria" required>
+                            <option value="Audio">Audio</option>
+                            <option value="Relojes">Relojes</option>
+                            <option value="Accesorios">Accesorios</option>
+                            <option value="Iluminación">Iluminación</option>
+                            <option value="Computación">Computación</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="imagen">URL de la Imagen (Directa de ImgBB)</label>
+                        <input type="url" id="imagen" required placeholder="https://i.ibb.co/...">
+                    </div>
+                    <button type="submit" class="btn-primary btn-block">Guardar en Base de Datos</button>
+                </form>
+            </section>
+
+            <section class="admin-panel list-panel">
+                <h2>Inventario Actual</h2>
+                <div class="table-responsive">
+                    <table class="admin-table">
+                        <thead>
+                            <tr>
+                                <th>ID</th>
+                                <th>Foto</th>
+                                <th>Nombre</th>
+                                <th>Precio</th>
+                                <th>Categoría</th>
+                                <th>Acción</th>
+                            </tr>
+                        </thead>
+                        <tbody id="tablaProductos">
+                            </tbody>
+                    </table>
+                </div>
+            </section>
+
+        </div>
+    </main>
+
+    <script src="js/admin.js"></script>
+</body>
+</html>
